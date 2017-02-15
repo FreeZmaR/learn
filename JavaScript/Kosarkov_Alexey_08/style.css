@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+   height: 100%;
+    padding-top: 100px;
+}
+#main{
+    margin: 0 auto;
+    height: 564px;
+    width: 544px;
+    background-color: bisque;
+}
+.cell{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    float: left;
+    font-size: 1em;
+    text-align: center;
+   
+}
+.black{
+   background-color:  #d1691f;
+}
+.white{
+    background-color: floralwhite;
+}
+.board{
+    height: 480px;
+    width: 480px;
+    border: 2px solid #d53e07;
+    float: left;
+}
+.number{
+    height: 50px;
+    width: 25px;
+    display: inline-block;
+    padding-top: 12px;
+}
+.latter{
+    height: 30px;
+    width: 60px;
+    display: inline-block;
+}
+.up, .down{
+    height: 30px;
+    width: 480px;
+    margin-right: 25px;
+    margin-left: 25px;
+    text-align: center;
+    padding: 2px;
+    padding-top: 5px;
+}
+.side{
+    height: 480px;
+    width: 25px;
+    
+    float: left;
+    text-align: center;
+    padding: 2px;
+}
+
+.inp{
+    height: 564px;
+    width: 544px;
+    background:url(img/fon.jpg) no-repeat center;
+}
+.btn:hover{
+    color: #fff;
+  background-color: #3071a9;
+  border-color: #285e8e;
+}
+.btn{
+    width: 100%;
+    padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+    color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+    margin-bottom: 20px;
+    
+}
+.cell strong{
+    font-size: 50px;
+    cursor: pointer;
+}
+.clear{
+    clear: both;
+}
+.button-block{
+    position: relative;
+    top: 200px;
+    padding-left: 55px;
+    padding-right: 55px;
+}
+.move{
+    height: 60px;
+    width: 60px;
+    background: radial-gradient(circle at 65% 15%, aqua, darkblue);
+}
+.attac{ 
+    background: radial-gradient(circle at 65% 15%, red, darkred);
+}

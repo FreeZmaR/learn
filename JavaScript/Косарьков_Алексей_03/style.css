@@ -1,0 +1,25 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+div.w
+{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+}
+div.b
+{
+    height: 50px;
+    width: 50px;
+    background-color: black;
+}
+.menu p
+{
+    margin-bottom: 15px;
+}
+.menu
+{
+    margin: 75px 0  0 25px;
+}

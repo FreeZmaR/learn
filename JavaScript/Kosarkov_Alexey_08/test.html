@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        var proc = 55 + (-16);
+        var position = 55;
+    if((proc < 0) || (proc < 63)){
+        console.log("1 : "+proc)
+    }
+       
+    
+        for(var i = 0 ; i< 7 ;i++)
+            {
+                if((position == (i*8)) && (proc == (15+(i*8)))){
+                    console.log((i*8)+"u");
+                    console.log(15+(i*8)+"\n");
+                    console.log(proc);
+                }
+                
+                if(((position == (7+(8*i))) && (proc == (7+(8*i+1))))){
+                console.log(7+(i*8)+"u");
+                console.log(7+(i*8+1)+"\n");
+                    console.log(proc);
+                }
+                if(((position = (63-(i*8))) && (proc == (63-(i*8)-15)))){
+                console.log(63-(i*8)+"u");
+                console.log(63-(i*8)-15+"\n");
+                    console.log(proc);
+                }
+                if(((position == (8*(7-i))) && (proc == (8*(7-i)-1)))){
+                console.log(8*(7-i)+"u");
+                console.log(8*(7-i)-1+"\n");
+                    console.log(proc);
+                }
+            }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

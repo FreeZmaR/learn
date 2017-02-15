@@ -1,0 +1,155 @@
+@media only screen and (max-width:1135px){
+    .head_menu nav ul li{
+        transition: 0.4s;
+        margin-left: 50px;
+        letter-spacing: 1px;
+    }
+    .head_menu nav {
+        width: 600px;
+        margin-left: 90px;
+        transition: 0.4s;
+    }
+}
+@media only screen and (max-width:1000px){
+    .head_menu nav ul li{
+        margin-left: 40px;
+        transition: 0.5s;
+        letter-spacing: 1px;
+    }
+    .head_menu nav {
+        width: 600px;
+        margin-left: 90px;
+        transition: 0.5s;
+    }
+    main section figure{
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-left: 10px;
+        width: 250px;
+        transition: 0.5s;
+    }
+    main section figure figcaption a:hover{
+        border: 7px solid #42bdbc;
+        height: 26px;
+        width: 111px;
+        padding-top: 10px;
+        transition: 0.2s;
+    }
+    main section figure figcaption a{
+        position: relative;
+        width: 125px;
+        height: 34px;
+        padding-top: 16px;
+        transition: 0.3s;
+    }
+}
+@media only screen and (max-width:972px){
+    .head_menu nav ul li{
+        margin-left: 20px;
+        transition: 0.5s;
+        letter-spacing: 1px;
+    }
+    .head_menu nav {
+        width: 470px;
+        margin-left: 50px;
+        transition: 0.5s;
+    }
+}
+@media only screen and (max-width:820px){
+    .head_menu nav ul li{
+        margin-left: 10px;
+        transition: 0.5s;
+        letter-spacing: 1px;
+    }
+    .head_menu nav {
+        width: 430px;
+        margin-left: 30px;
+        transition: 0.5s;
+    }
+    main section figure{
+        margin-top: 0;
+        margin-left: 6px;
+        width: 230px;
+        transition: 0.5s;
+    }
+    main section figure figcaption a:hover{
+        position: relative;
+        border: 4px solid #42bdbc;
+        height: 20px;
+        width: 88px;
+        padding-top: 3px;
+        transition: 0.2s;
+    }
+    main section figure figcaption a{
+        width: 100px;
+        height: 27px;
+        padding-top: 8px;
+        transition: 0.3s;
+        margin-top: 3px;
+    }
+}
+@media only screen and (max-width:775px){
+    .head_menu nav ul li{
+        margin-left: 6px;
+        transition: 0.5s;
+        letter-spacing: 1px;
+    }
+    .head_menu {
+        padding-left: 10px;
+        transition: 0.5s;
+    }
+    .head_menu nav {
+        width: 410px;
+        margin-left: 20px;
+        transition: 0.5s;
+    }
+}
+@media only screen and (max-width:740px){
+    main section figure figcaption a:hover{
+        border:9px solid #42bdbc;
+        height: 32px;
+        width: 134px;
+        padding-top: 12px;
+        color: red;
+    }
+    main section figure figcaption a{
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding-top: 20px;
+        width: 150px;
+        height: 40px;
+        outline-offset: -8px;
+        transition: 0.5s;
+    }
+    main section figure{
+        display: block;
+        margin: 0 auto;
+        height: 450px;
+        width: 400px;
+        margin-top: 15px;
+        transition: 0.5s;
+    }
+}
+@media only screen and (max-width:725px){
+    .head_menu nav ul li{
+        margin-left: 15px;
+        transition: 0.5s;
+        letter-spacing: 1px;
+    }
+    .head_menu .icon, .head_menu nav{
+        display: block;
+        text-align: center;
+        transition: 0.5s;
+    }
+    .head_menu {
+        padding-left: 10px;
+        height: 122px;
+        transition: 0.5s;
+    }
+    .head_menu nav {
+        width: 450px;
+        margin: 0 auto;
+        transition: 0.5s;
+    }
+}

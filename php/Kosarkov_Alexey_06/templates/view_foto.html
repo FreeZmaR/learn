@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>((TITLE))</title>
+</head>
+<body>
+   <a href="?page=((BACK))">Назад</a>
+   <br>
+   <br>
+    <img src="((FOTO))" alt="((TITLE))">
+    <strong>((USER))</strong> ((DATE))
+    view:((VIEW))
+    ((INFORM))
+    <br>
+    <h4>Отзовы:</h4>
+    ((SHOW_RECALL))
+    <h3>Оставить отзыв</h3>
+<form action="uploadrecall.php?id=((ID))&foto=((FOTO))&title=((TITLE))&user=((USER))&date=((DATE))&view=((VIEW))&back=((BACK))" method="post">
+    <p><input type="text" placeholder="Имя" name="name"></p>
+    <p><textarea name="text"cols="40" rows="6" style="resize:none"></textarea></p>   
+    <p><input type="submit" name="smb" value="Оставить отзыв"></p>
+</form>
+    
+</body>
+</html>
