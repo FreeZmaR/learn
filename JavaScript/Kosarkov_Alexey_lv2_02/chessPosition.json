@@ -102,14 +102,14 @@
     "class":"white",
     "name":"king",
     "img":"\u2654",
-    "position":[59,3]
+    "position":[59,4]
   },
   {
     "id":16,
     "class":"white",
     "name":"queen",
     "img":"\u2655",
-    "position":[60,4]
+    "position":[60,3]
   },
   {
     "id":17,
@@ -214,13 +214,13 @@
     "class":"black",
     "name":"king",
     "img":"\u265a",
-    "position":[3,59]
+    "position":[3,60]
   },
   {
     "id":32,
     "class":"black",
     "name":"queen",
     "img":"\u265b",
-    "position":[4,60]
+    "position":[4,59]
   }
 ]
