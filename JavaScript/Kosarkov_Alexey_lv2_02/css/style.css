@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.block_cell{
+    border: 1px solid #c25830;
+    float: left;
+}
+.cell, .letter, .block_number, .block_cell{
+    display: inline-block;
+}
+.black{
+    background-color: #e07017;
+}
+.white{
+    background-color: white;
+}
+.number{
+    width: 15px;
+}
+
+.block_number{
+    margin-top: 4%;
+    float: left;
+}
+.block_letter{
+    clear: both;
+    margin-left: 15px;
+}
+.letter, .number{
+    text-align: center;
+}
+.board{
+    margin: 0 auto;
+    width: auto;
+}
+.cell{
+    float: left;
+}
+.menu p a:hover{
+    color: red;
+}
+.menu p .btn{
+    background-color: #366fdb;
+    margin: 0 auto;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #f6f6f6;
+    letter-spacing: 1px;
+}
+.menu p{
+    margin-top: 10px;
+}
+.menu{
+    width: 200px;
+    height: 90px;
+    margin: 0 auto;
+    margin-top: 20%;
+    text-align: center;
+    background-color: #a6a6a6;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+.back .btn{
+    color: black;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+}
+.back{
+    position: fixed;
+    top: 50px;
+    right: 10px;
+}
+ul{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+ol{
+    margin-left: 70px;
+    display: none;
+}
+.li_1{
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
