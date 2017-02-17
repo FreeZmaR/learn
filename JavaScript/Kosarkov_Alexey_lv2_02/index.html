@@ -3,59 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .block_cell{
-            border: 1px solid #c25830;
-            float: left;
-        }
-        .cell, .letter, .block_number, .block_cell{
-            display: inline-block;
-        }
-        .black{
-            background-color: #e07017;
-        }
-        .white{
-            background-color: white;
-        }
-        .number{
-            width: 15px;
-        }
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/chess.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/phone.js"></script>
 
-        .block_number{
-            margin-top: 4%;
-            float: left;
-        }
-        .block_letter{
-            clear: both;
-            margin-left: 15px;
-        }
-        .letter, .number{
-            text-align: center;
-        }
-        .board{
-            margin: 0 auto;
-            width: auto;
-        }
-        .cell{
-            float: left;
-        }
-        .nonefloat{
-
-        }
-    </style>
-    <script src="chess.js"></script>
-    <script>
-        window.onload = function () {
-            var board = new ChessBoard();
-            board.creatBoardIn(document.getElementsByClassName("container")[0]);
-        };
-    </script>
 </head>
 <body>
-<div class="container"></div>
+<div class="container">
+    <div class="menu">
+        <p><button type="button" class="btn" onclick="chois(1)">Загрузить Доску</button></p>
+        <p><button type="button" class="btn" onclick="chois(2)">Загрузить телефоны</button></p>
+    </div>
+</div>
 </body>
 </html>
