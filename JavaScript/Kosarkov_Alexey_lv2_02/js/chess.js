@@ -13,8 +13,11 @@ function ChessBoard() {
     block_letter.classList.add("block", "block_letter");
     var block_letter_duplicate = document.createElement('div');
     block_letter_duplicate.classList.add("block", "block_letter");
-    //пол умолчанию в низу белые
-    var start_chess = "white";
+    /*пол умолчанию в низу белые
+    0 - белые
+    1 - черные
+    */
+    this.start_chess = 0;
     //блок с выводом активной клетки
     var table_move = document.createElement('div');
     table_move.classList.add("table_move");
@@ -28,84 +31,109 @@ function ChessBoard() {
         height: 50,
         width: 50
     };
-    //добавляем в массив cell блоки клеток чередуя цвет , четные и не четные
-    for(var i = 0 ; i < 8; i++)
-    {
-        for(var j = 0 ; j < 8 ; j++)
-        {
-            //создание клетки в зависимости от суммы i и j : четные - белые , не четные черные
-            if((i+j) == 0){
-                var cell_class = document.createElement('div');
-                cell_class.classList.add("cell", "white");
-                //cell_class.innerText = cell.cell_arr.length; - для отладки
-                //задаем высату и ширину клетки
-                cell_class.style.width = cell.width+"px";
-                cell_class.style.height = cell.height+"px";
-                cell_class.addEventListener('click', function(i, j){return function(){activeCell(i, j)}}(i, j));
-                cell.cell_arr.push(cell_class);
-            }else if( ((i+j)% 2) == 0)
-            {
-                var cell_class = document.createElement('div');
-                cell_class.classList.add("cell", "white");
-                //cell_class.innerText = cell.cell_arr.length; - для отладки
-                //задаем высату и ширину клетки
-                cell_class.style.width = cell.width+"px";
-                cell_class.style.height = cell.height+"px";
-                cell_class.addEventListener('click', function(i, j){return function(){activeCell(i, j)}}(i, j));
-                cell.cell_arr.push(cell_class);
-            }else{
-                var cell_class = document.createElement('div');
-                cell_class.classList.add("cell", "black");
-                //cell_class.innerText = cell.cell_arr.length; - для отладки
-                //задаем высату и ширину клетки
-                cell_class.style.width = cell.width+"px";
-                cell_class.style.height = cell.height+"px";
-                cell_class.addEventListener('click', function(i, j){return function(){activeCell(i, j)}}(i, j));
-                cell.cell_arr.push(cell_class);
+    var chess = "";
+
+    //сборка доски
+    function build(startChess) {
+        //добавляем в массив cell блоки клеток чередуя цвет , четные и не четные
+        for (var i = 0; i < 8; i++) {
+            for (var j = 0; j < 8; j++) {
+                //создание клетки в зависимости от суммы i и j : четные - белые , не четные черные
+                if ((i + j) == 0) {
+                    var cell_class = document.createElement('div');
+                    cell_class.classList.add("cell", "white");
+                    //cell_class.innerText = cell.cell_arr.length; - для отладки
+                    //задаем высату и ширину клетки
+                    cell_class.style.width = cell.width + "px";
+                    cell_class.style.height = cell.height + "px";
+                    cell_class.addEventListener('click', function (i, j) {
+                        return function () {
+                            activeCell(i, j)
+                        }
+                    }(i, j));
+                    cell.cell_arr.push(cell_class);
+                } else if (((i + j) % 2) == 0) {
+                    var cell_class = document.createElement('div');
+                    cell_class.classList.add("cell", "white");
+                    //cell_class.innerText = cell.cell_arr.length; - для отладки
+                    //задаем высату и ширину клетки
+                    cell_class.style.width = cell.width + "px";
+                    cell_class.style.height = cell.height + "px";
+                    cell_class.addEventListener('click', function (i, j) {
+                        return function () {
+                            activeCell(i, j)
+                        }
+                    }(i, j));
+                    cell.cell_arr.push(cell_class);
+                } else {
+                    var cell_class = document.createElement('div');
+                    cell_class.classList.add("cell", "black");
+                    //cell_class.innerText = cell.cell_arr.length; - для отладки
+                    //задаем высату и ширину клетки
+                    cell_class.style.width = cell.width + "px";
+                    cell_class.style.height = cell.height + "px";
+                    cell_class.addEventListener('click', function (i, j) {
+                        return function () {
+                            activeCell(i, j)
+                        }
+                    }(i, j));
+                    cell.cell_arr.push(cell_class);
+                }
             }
         }
+        //добавляем фигуры
+        for(var i = 0 ; i < chess.length;i++)
+        {
+            var text = document.createElement('strong');
+            text.innerText = chess[i]['img'];
+            //проверка не была ли съедина фигура
+            if(chess[i]['position'][startChess] != undefined) {
+                cell.cell_arr[chess[i]['position'][startChess]].appendChild(text);
+            }
+        }
+        //выставляем клетки в блок для клеток
+        for (var i = 0; i < 64; i++) {
+            block_cell.appendChild(cell.cell_arr[i]);
+        }
+        //добавляем в блоки буквы и цыфры
+        for (var i = 0; i < 8; i++) {
+            var number = document.createElement('div');
+            number.className = "number";
+            number.innerText = "" + (i + 1);
+            //высота пропорционально высоте клетки
+            number.style.height = (cell.height) + "px";
+            block_number.appendChild(number);
+            var number_duplicate = document.createElement('div');
+            number_duplicate.className = "number";
+            number_duplicate.innerText = "" + (i + 1);
+            number_duplicate.style.height = (cell.height) + "px";
+            block_number_duplicate.appendChild(number_duplicate);
+            var letter = document.createElement('div');
+            letter.className = "letter";
+            letter.innerText = numToLet(i + 1);
+            letter.style.width = (cell.width) + "px";
+            block_letter.appendChild(letter);
+            var letter_duplicate = document.createElement('div');
+            letter_duplicate.className = "letter";
+            ;
+            letter_duplicate.innerText = numToLet(i + 1);
+            letter_duplicate.style.width = (cell.width) + "px";
+            block_letter_duplicate.appendChild(letter_duplicate);
+        }
+        //добавляем все элименты на доску
+        block_letter.style.width = (cell.width * 8) + "px";
+        board.appendChild(block_letter);
+        block_number.style.height = (cell.height * 8) + "px";
+        board.appendChild(block_number);
+        block_cell.style.width = (cell.width * 8) + "px";
+        block_cell.style.height = (cell.height * 8) + "px";
+        board.appendChild(block_cell);
+        block_number_duplicate.style.height = (cell.height * 8) + "px";
+        board.appendChild(block_number_duplicate);
+        block_letter_duplicate.style.width = (cell.width * 8) + "px";
+        board.appendChild(block_letter_duplicate);
+        board.appendChild(table_move);
     }
-    //выставляем клетки в блок для клеток
-    for(var i = 0 ; i < 64; i++){
-        block_cell.appendChild(cell.cell_arr[i]);
-    }
-    //добавляем в блоки буквы и цыфры
-    for(var i = 0 ; i < 8 ; i++){
-        var number = document.createElement('div');
-        number.className = "number";
-        number.innerText = ""+(i+1);
-        //высота пропорционально высоте клетки
-        number.style.height = (cell.height)+"px";
-        block_number.appendChild(number);
-        var number_duplicate = document.createElement('div');
-        number_duplicate.className = "number";
-        number_duplicate.innerText = ""+(i+1);
-        number_duplicate.style.height = (cell.height)+"px";
-        block_number_duplicate.appendChild(number_duplicate);
-        var letter = document.createElement('div');
-        letter.className = "letter";
-        letter.innerText = numToLet(i+1);
-        letter.style.width = (cell.width)+"px";
-        block_letter.appendChild(letter);
-        var letter_duplicate = document.createElement('div');
-        letter_duplicate.className = "letter";;
-        letter_duplicate.innerText = numToLet(i+1);
-        letter_duplicate.style.width = (cell.width)+"px";
-        block_letter_duplicate.appendChild(letter_duplicate);
-    }
-    //добавляем все элименты на доску
-    block_letter.style.width = (cell.width*8)+"px";
-    board.appendChild(block_letter);
-    block_number.style.height = (cell.height*8)+"px";
-    board.appendChild(block_number);
-    block_cell.style.width = (cell.width*8)+"px";
-    block_cell.style.height = (cell.height*8)+"px";
-    board.appendChild(block_cell);
-    block_number_duplicate.style.height = (cell.height*8)+"px";
-    board.appendChild(block_number_duplicate);
-    block_letter_duplicate.style.width = (cell.width*8)+"px";
-    board.appendChild(block_letter_duplicate);
-    board.appendChild(table_move);
     //слушатель для клетки
     var activeCell = function(i , j) {
         if(document.getElementsByClassName('cell_show')[0] != undefined){
@@ -118,28 +146,57 @@ function ChessBoard() {
         table_move.appendChild(cell_show);
     };
     //выбор цвет фигур
+    /*
     this.choisChess = function(color) {
         //проверка на правильность указания цвета, иначе белые
         switch(color){
-            case "black": start_chess = color;
+            case "1": start_chess = color;
             break;
             default: break;
         }
 
-    };
+};*/
     //создает доску после переданого элемента
     this.creatBoardAfter = function(element){
        if(element){
-           board.style.width = (32 + cell.width*8)+"px";
-           element.parentNode.appendChild(board);
+           var xhr = new XMLHttpRequest();
+           xhr.open('post', 'chessPosition.json', true);
+           xhr.send();
+           var stch = this.start_chess;
+           xhr.onreadystatechange = function(){
+               if(xhr.readyState != 4) return;
+               if(xhr.status == 200){
+                   chess = jsonParser(xhr.responseText);
+                   console.log(stch);
+                   build(stch);
+                   board.style.width = (32 + cell.width*8)+"px";
+                   element.parentNode.appendChild(board);
+               }else{
+
+               }
+           };
        }
     };
     //создает доску в переданого элемента
     this.creatBoardIn = function(element) {
         if(element){
-            board.style.width = (32 + cell.width*8)+"px";
-            board.style.marginTop = "10%";
-            element.appendChild(board);
+            var xhr = new XMLHttpRequest();
+            xhr.open('post', 'chessPosition.json', true);
+            xhr.send();
+            var stch = this.start_chess;
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState != 4) return;
+                if(xhr.status == 200){
+                    chess = jsonParser(xhr.responseText);
+                    console.log(stch);
+                    build(stch);
+                    board.style.width = (32 + cell.width*8)+"px";
+                    board.style.marginTop = "10%";
+                    element.appendChild(board);
+                }else{
+
+                }
+            };
         }
 
     };
@@ -176,7 +233,10 @@ function ChessBoard() {
         name+= numToLet(j);
         return name;
     }
-
+    function jsonParser(responseText) {
+        var obj = JSON.parse(responseText);
+       return obj;
+    }
     function numToLet(num) {
         switch(num){
             case 1: return "A";

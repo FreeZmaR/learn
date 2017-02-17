@@ -34,8 +34,13 @@
     margin: 0 auto;
     width: auto;
 }
+.cell strong{
+    font-size: 40px;
+    cursor: pointer;
+}
 .cell{
     float: left;
+    text-align: center;
 }
 .menu p a:hover{
     color: red;
