@@ -57,10 +57,10 @@ function Phone() {
         var showOl = function(i) {
             var show_ol = document.getElementsByClassName('ol_'+i)[0];
             if(show_ol != undefined){
-                if(show_ol.style.display == 'none'){
-                    show_ol.style.display = 'block';
-                }else{
+                if(show_ol.style.display == 'block'){
                     show_ol.style.display = 'none';
+                }else{
+                    show_ol.style.display = 'block';
                 }
             }
         };
