@@ -1,4 +1,10 @@
-
+/*
+    Возвращениие через кнопку назад функции menu(1, 2)
+    1 - элемент куда поместить кнопку
+    2 - куда вернуться после нажатия :
+        chessColor - к выбору цвета фигур
+        main - на главную страницу
+ */
 
 //функциия удаления детей из DOM
 function clear(element){
@@ -12,12 +18,12 @@ function chois(n) {
     switch(n){
         case 1: clear(container);
                 chess_color(container);
-            menu(container);
+            menu(container, "main");
             break;
         case 2: clear(container);
             var phone = new Phone();
             phone.show();
-            menu(container);
+            menu(container, "main");
             break;
         default:break;
     }
@@ -30,15 +36,21 @@ function  creatBoard(n) {
     board.start_chess = n;
     console.log(board.start_chess);
     board.creatBoardIn(container);
-    menu(container);
+    menu(container, "chessColor");
 }
-function menu(container) {
+function menu(container, where) {
     var main = document.createElement('div');
     main.classList.add("back");
     var btn = document.createElement('button');
     btn.classList.add("btn");
     btn.innerText = "Назад";
-    btn.addEventListener('click', function() {location.reload();});
+    //куда вернуться
+    switch(where){
+        case 'chessColor': btn.addEventListener('click', function() {chois(1);});
+            break;
+        default: btn.addEventListener('click', function() {location.reload();});
+            break;
+    }
     main.appendChild(btn);
     container.appendChild(main);
 }
