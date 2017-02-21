@@ -126,18 +126,17 @@ function OtherWork() {
     input_phone.onkeyup = function () {
         //проверяю только последний ведденный символ проблема если стирают (
         if(this.value.length == 1){
-            var simbol = this.value;
-            if(simbol.replace(/[^7,8]/, '') != ''){
-                this.value.replace(simbol, ("+7 ("+simbol) );
-            }else{
                 this.value = "+7 (";
-            }
         }else{
+            //удаление символов
             if(phoneNumber(this.value.charAt(this.value.length-1)) == ''){
                 this.value = this.value.slice(0, -1);
             }
             if( (this.value.length == 12) || (this.value.length == 15)){
                 this.value += "-";
+            }
+            if(this.value.length == 8){
+                this.value += " ";
             }
             if(this.value.length == 7){
                 this.value += ") ";
@@ -162,10 +161,61 @@ function OtherWork() {
     var input_mail = document.createElement('input');
     input_mail.id = "mail";
     input_mail.onkeyup = function () {
-
+        if( ((test = this.value.replace(/([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,3}/, '')) == '') && (this.value.length != 0) ){
+            this.classList.remove('error');
+            this.classList.add('access');
+            label_mail.classList.add('access');
+            label_mail.classList.remove('error');
+        }else{
+            this.classList.add('error');
+            this.classList.remove('access');
+            label_mail.classList.remove('access');
+            label_mail.classList.add('error');
+        }
     };
     var input_pasport = document.createElement('input');
     input_pasport.id = "pasport";
+    input_pasport.onkeyup = function () {
+        if(this.value.length != 0){
+            if(posport(this.value.charAt(this.value.length-1)) == '' ){
+                this.value = this.value.slice(0, -1);
+            }
+            if(this.value.length > 1){
+                if((this.value.charAt(this.value.length-1) == ' ') && (this.value.charAt(this.value.length-2) == ' ')){
+                    this.value = this.value.slice(0, -1);
+                }
+                if(this.value.length < 5){
+                    this.value = this.value.replace(/\s/gi, '');
+                }
+                if(this.value.length == 4){
+                    this.value += ' ';
+                }
+                if(this.value.length > 5){
+                    if(this.value.charAt(this.value.length-1) == ' '){
+                        this.value = this.value.slice(0, -1);
+                    }
+                }
+                if(this.value.length > 11){
+                    this.value = this.value.slice(0, -1);
+                }
+            }else{
+                if(this.value == ' '){
+                    this.value = this.value.slice(0, -1);
+                }
+            }
+        }
+        if(this.value.length == 11){
+            input_pasport.classList.add('access');
+            input_pasport.classList.remove('error');
+            label_pasport.classList.add('access');
+            label_pasport.classList.remove('error');
+        }else{
+            input_pasport.classList.remove('access');
+            input_pasport.classList.add('error');
+            label_pasport.classList.remove('access');
+            label_pasport.classList.add('error');
+        }
+    };
     var input_submit_work5 = document.createElement('input');
     input_submit_work5.classList.add("btn", "sbt", 'disable');
     input_submit_work5.setAttribute('value', 'Ok');
@@ -188,7 +238,7 @@ function OtherWork() {
             }
         }
         if(value.length < 8){
-            return value.replace(/[^#0-9a-f]/g, '');
+            return value.replace(/[^#0-9a-f]/gi, '');
         }else {
             return value.slice(0, -1);
         }
@@ -226,6 +276,10 @@ function OtherWork() {
     //Проверка на коректный ввод телефоннового номера
     function phoneNumber(value) {
         return value.replace(/[^0-9]/g, '');
+    }
+    //Проверка паспорта
+    function posport(value) {
+        return value.replace(/[^ 0-9]/, '');
     }
     //вводит ДЗ в DOM в переданный элемент
     this.show = function (element) {
