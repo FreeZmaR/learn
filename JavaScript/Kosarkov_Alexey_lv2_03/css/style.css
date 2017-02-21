@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.block_cell{
+    border: 1px solid #c25830;
+    float: left;
+}
+.cell, .letter, .block_number, .block_cell{
+    display: inline-block;
+}
+.black{
+    background-color: #e07017;
+}
+.white{
+    background-color: white;
+}
+.number{
+    width: 15px;
+}
+
+.block_number{
+    margin-top: 4%;
+    float: left;
+}
+.block_letter{
+    clear: both;
+    margin-left: 15px;
+}
+.letter, .number{
+    text-align: center;
+}
+.board{
+    margin: 0 auto;
+    width: auto;
+}
+.cell strong{
+    font-size: 40px;
+    cursor: pointer;
+}
+.cell{
+    float: left;
+    text-align: center;
+}
+.menu p a:hover{
+    color: red;
+}
+
+.btn{
+    background-color: #366fdb;
+    margin: 0 auto;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: #f6f6f6;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+}
+.sbt{
+    display: block;
+    margin-top: 10px;
+}
+.menu p{
+    margin-top: 10px;
+}
+.menu{
+    width: 200px;
+    height: 90px;
+    margin: 0 auto;
+    margin-top: 20%;
+    text-align: center;
+    background-color: #a6a6a6;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+.back .btn{
+    color: black;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+}
+.back{
+    position: fixed;
+    top: 50px;
+    right: 40px;
+}
+h1{
+    text-align: center;
+    margin-top: 25px;
+}
+
+section input{
+    margin-bottom: 10px;
+}
+section{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+section label{
+    display: block;
+}
+section h2{
+    margin-bottom: 10px;
+}
+
+input.disable{
+ background-color: #4e4e4e;
+    cursor: not-allowed;
+}
+.error{
+    color: red;
+}
+.access{
+    color: #1c8700;
+}
+textarea{
+    resize: none;
+    height: 150px;
+    width: 300px;
+}
+hr{
+    border-color: #33cccc;
+}
+
+.conclusion, .conclusion2{
+    height: auto;
+    width: 250px;
+    background-color: #7aa1ff;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+input.access{
+    border-color: #1c8700;
+}
+input.error{
+    border-color: red;
+}
